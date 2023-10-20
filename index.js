@@ -1,3 +1,4 @@
+// raw dataset
 var finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
@@ -100,27 +101,28 @@ var finances = [
 5. The greatest decrease in losses (date and amount) over the entire period.
 */
 
-// total months
+
+// 1. total months
 var totalMonths = finances.length;
 console.log(totalMonths);
 
-// net total
+// 2. net total -> sum of all the numbers in the finances array
 var netTotal = 0;
 
 for (var i = 0; i < finances.length; i++) {
-  netTotal += finances[i][1];
+  netTotal += finances[i][1]; // adding all the values in the finances array
 }
 
 console.log(netTotal);
 
-// average change in profit/loss
+// 3. average change in profit/loss month-on-month
 var changes = [];
 
 for (var i = 1; i < finances.length; i++) {
-  var currentMonth = finances[i][1];
-  var previousMonth = finances[i - 1][1];
-  var change = currentMonth - previousMonth;
-  changes.push(change);
+  var currentMonth = finances[i][1]; // looks for number value in each array
+  var previousMonth = finances[i - 1][1]; // looks for the adjacent number value in the previous array
+  var change = currentMonth - previousMonth; // calculates the difference between the two arrays
+  changes.push(change); // pushes the value into a new array
 }
 
 console.log(changes);
@@ -128,37 +130,37 @@ console.log(changes);
 var newAverageTotal = 0;
 
 for (var i = 0; i < changes.length; i++) {
-  newAverageTotal += changes[i];
+  newAverageTotal += changes[i]; // adding all the values in the changes array
 }
 
 console.log(newAverageTotal);
 
-var average = (newAverageTotal/(totalMonths - 1)).toFixed(2);
+var average = (newAverageTotal/(totalMonths - 1)).toFixed(2); // calculating the average change to 2 decimal places
 console.log(average);
 
-// which month had the greatest increase in profits
-var greatest = Math.max(...changes);
+// 4. which month had the greatest increase in profits
+var greatest = Math.max(...changes); // finding the highest value in the changes array
 console.log(greatest);
-var greatestResult = changes.indexOf(greatest);
+var greatestResult = changes.indexOf(greatest); // locating the index of the above value in the changes array
 console.log(greatestResult);
 
-var largestProfit = finances[24 + 1];
+var largestProfit = finances[24 + 1]; // adding 1 to find the corresponding month in the finances array
 console.log(largestProfit);
 
-// which month had the greatest loss in profits
-var lowest = Math.min(...changes);
+// 5. which month had the greatest loss in profits
+var lowest = Math.min(...changes); // finding the lowest value in the changes array
 console.log(lowest);
-var lowestResult = changes.indexOf(lowest);
+var lowestResult = changes.indexOf(lowest); // locating the index of the above value in the changes array
 console.log(lowestResult);
 
-var largestLoss = finances[43 + 1];
+var largestLoss = finances[43 + 1]; // adding 1 to find the corresponding month in the finances array
 console.log(largestLoss);
 
 // Compiled report
 console.log(`Financial Analysis
             \n------------------
             \nTotal Months: ${totalMonths}
-            \nTotal: £${netTotal}
+            \nTotal: $${netTotal}
             \nAverage Change: ${average}
             \nGreatest Increase in Profits/Losses: ${largestProfit[0]} ($${greatest})
             \nGreatest Decrease in Profits/Losses: ${largestLoss[0]} ($${lowest})
