@@ -118,8 +118,8 @@ var changes = [];
 
 for (var i = 1; i < finances.length; i++) {
   var currentMonth = finances[i][1];
-  var nextMonth = finances[i - 1][1];
-  var change = currentMonth - nextMonth;
+  var previousMonth = finances[i - 1][1];
+  var change = currentMonth - previousMonth;
   changes.push(change);
 }
 
@@ -133,5 +133,23 @@ for (var i = 0; i < changes.length; i++) {
 
 console.log(newAverageTotal);
 
-var average = newAverageTotal/(totalMonths - 1);
+var average = (newAverageTotal/(totalMonths - 1)).toFixed(2);
 console.log(average);
+
+// which month had the greatest increase in profits
+var greatest = Math.max(...changes);
+console.log(greatest);
+var greatestResult = changes.indexOf(greatest);
+console.log(greatestResult);
+
+var largestProfit = finances[24 + 1];
+console.log(largestProfit);
+
+// which month had the greatest loss in profits
+var lowest = Math.min(...changes);
+console.log(lowest);
+var lowestResult = changes.indexOf(lowest);
+console.log(lowestResult);
+
+var largestLoss = finances[43 + 1];
+console.log(largestLoss);
