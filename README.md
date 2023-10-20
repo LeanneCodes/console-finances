@@ -22,6 +22,9 @@ To view the report, please follow the following steps:
 2. Navigate to the tab that's labelled "Console"
 3. Scroll to the bottom to view final compiled report
 
+## Notes
+I have included my console.logs throughout the code, to show my workings and to make sure I was on track to find the correct data.
+
 ## Credit
 
 - MDN Web Docs for the function to calculate the change in profit month-on-month.
