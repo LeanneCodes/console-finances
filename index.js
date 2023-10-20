@@ -153,3 +153,13 @@ console.log(lowestResult);
 
 var largestLoss = finances[43 + 1];
 console.log(largestLoss);
+
+// Compiled report
+console.log(`Financial Analysis
+            \n------------------
+            \nTotal Months: ${totalMonths}
+            \nTotal: £${netTotal}
+            \nAverage Change: ${average}
+            \nGreatest Increase in Profits/Losses: ${largestProfit[0]} ($${greatest})
+            \nGreatest Decrease in Profits/Losses: ${largestLoss[0]} ($${lowest})
+          `);
